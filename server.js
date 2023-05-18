@@ -27,6 +27,8 @@ app.use(helmet({
   dnsPrefetchControl: false
 }));
 
+app.use(bcrypt);
+
 app.use(function (req, res, next) {
   res.set({
     "Access-Control-Allow-Origin": "*",
