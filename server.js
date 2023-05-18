@@ -6,11 +6,11 @@
 var express = require("express");
 var app = express();
 app.disable("x-powered-by");
+const helmet = require('helmet');
+const bcrypt = require('bcrypt');
 var fs = require("fs");
 var path = require("path");
 
-const helmet = require('helmet');
-const bcrypt = require('bcrypt');
 
 app.use(helmet({
   frameguard: {         
