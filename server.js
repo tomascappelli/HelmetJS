@@ -20,7 +20,6 @@ app.use(function (req, res, next) {
 });
 
 const helmet = require('helmet');
-const bcrypt = require('bcrypt');
 
 ninetyDaysInSeconds = 90*24*60*60;
 
