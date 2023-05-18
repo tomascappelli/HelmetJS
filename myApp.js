@@ -5,16 +5,37 @@ const helmet = require('helmet');
 ninetyDaysInSeconds = 90*24*60*60;
 
 app.use(helmet({
-  frameguard: {
-    action: 'deny' 
+  frameguard: {         
+    action: 'deny'
   },
-  contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self'"],
-    scriptSrc: ["'self'",'trusted-cdn.com'],
+  contentSecurityPolicy: { 
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'",'trusted-cdn.com'],
+    }
   },
-  dnsPrefetchControl:false
-}));
+  dnsPrefetchControl: false
+}))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = app;
 const api = require('./server.js');
