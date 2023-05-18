@@ -10,6 +10,7 @@ var fs = require("fs");
 var path = require("path");
 
 const helmet = require('helmet');
+const bcrypt = require('bcrypt');
 
 ninetyDaysInSeconds = 90*24*60*60;
 
