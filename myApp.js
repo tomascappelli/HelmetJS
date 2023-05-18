@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-
+const hidePoweredBy = require('hide-powered-by');
+app.use(hidePoweredBy())
 
 
 
