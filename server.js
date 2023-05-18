@@ -9,18 +9,7 @@ app.disable("x-powered-by");
 var fs = require("fs");
 var path = require("path");
 
-app.use(function (req, res, next) {
-  res.set({
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers":
-      "Origin, X-Requested-With, content-type, Accept",
-  });
-  app.disable("x-powered-by");
-  next();
-});
-
 const helmet = require('helmet');
-const helmet = require('bcrypt');
 
 ninetyDaysInSeconds = 90*24*60*60;
 
@@ -35,7 +24,17 @@ app.use(helmet({
     }
   },
   dnsPrefetchControl: false
-}))
+}));
+
+app.use(function (req, res, next) {
+  res.set({
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers":
+      "Origin, X-Requested-With, content-type, Accept",
+  });
+  app.disable("x-powered-by");
+  next();
+});
 
 app.get("/file/*?", function (req, res, next) {
   if (req.params[0] === ".env") {
